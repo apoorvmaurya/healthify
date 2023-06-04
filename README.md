@@ -15,7 +15,7 @@ Healthify is a risk assessment system for medical institutions to generate risk 
 
 To get started with Healthify, follow these steps:
 
-1. :open_file_folder: Clone the repository:
+1. :open_file_folder: [Clone the repository](https://apoorvmaurya.github.io/healthify/):
 
    ```shell
    https://github.com/apoorvmaurya/healthify.git
