@@ -84,6 +84,7 @@ $(document).ready(function() {
                     $(this).remove();
     
                     // Show and animate the content
+                    $('#myCarousel').show();
                     $('.jumbotron').show();
                     $('.welcome').show();
                     $('.welcome hr').show();
