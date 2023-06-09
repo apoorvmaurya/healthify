@@ -246,6 +246,21 @@
 
     <script>
         
+        // Function to hide the splash screen and show the main content
+    function hideSplashScreen() {
+        $('#splash-screen').fadeOut('slow', function() {
+            // Remove the splash screen after fading out
+            $(this).remove();
+        });
+    }
+
+    $(document).ready(function() {
+        // Display personalized message on the splash screen
+        $('#splash-screen').text("HeYY...🙋‍♂️    "); // Customize the message here
+        // Set a timeout to hide the splash screen after 5 seconds (5000 milliseconds)
+        setTimeout(hideSplashScreen, 5000);
+    });
+
         $(document).ready(function() {
             animateOpening(); 
         });
