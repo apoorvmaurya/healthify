@@ -32,10 +32,17 @@
 
     .profile-photo {
       position: relative;
-      width: 50px;
-      height: 50px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       overflow: hidden;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.1);
     }
 
     .profile-photo img {
@@ -109,22 +116,27 @@
       height: calc(100vh - 110px); /* Adjust the height based on the position of other elements */
       border: none;
     }
+
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <header class="header">
-    <div class="profile-info">
-      <p>Hello <span id="username"></span>!</p>
-      <p>Your email: <span id="email"></span></p>
-    </div>
     <div class="profile-photo">
       <img id="profile-image" src="https://iili.io/H69PnPR.jpg" alt="Profile Photo">
       <input type="file" id="profile-upload" accept="image/*" onchange="loadProfilePhoto(event)">
     </div>
+    <div class="profile-info">
+      <p>Hello <span id="username"></span>!</p>
+      <p>Your id: <span id="email"></span></p>
+    </div>
+    <button id="logout-button" class="logout-button">Logout</button>
   </header>
 
   <div class="dashboard-container">
-    <iframe class="dashboard-iframe" src="dashboard.html"></iframe>
+    <iframe class="dashboard-iframe" id="dashboard-iframe" src="dashboard.html"></iframe>
   </div>
 
   <script src="profile.js"></script>
@@ -139,6 +151,15 @@
         reader.readAsDataURL(input.files[0]);
       }
     }
+
+    document.getElementById('logout-button').addEventListener('click', function() {
+      // Remove header section
+      var header = document.querySelector('.header');
+      header.classList.add('hidden');
+
+      // Redirect to homepage (index.html)
+      window.location.href = 'index.html';
+    });
   </script>
 </body>
 </html>

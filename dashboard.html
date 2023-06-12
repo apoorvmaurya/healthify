@@ -9,7 +9,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link rel="stylesheet" type="text/css" href="static/css/aboutus.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
 
     <style>
@@ -39,9 +39,6 @@ nav {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav ml-auto">
-                      <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="dashboard.html">Get Started</a>
                     </li>
@@ -67,7 +64,7 @@ nav {
 		                <a class="nav-link" href="#">|</a>
 		            </li>
                     <li class="nav-item">
-		                <a class="nav-link" href="logout">Logout</a>
+		                <a class="nav-link" href="logout.html">Logout</a>
 		            </li>
                     </ul>
                 </div>
@@ -77,10 +74,11 @@ nav {
 
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-4">Hello! Lets Get Started with RiskAssess</h1>
+      <h1 class="display-4">Hello...<span id="username"></span>! Lets Get Started with RiskAssess</h1>
       <p>Welcome to RiskAssess!, a risk assessment system for medical institutions to generate risk assessments for their patients. RiskAssess started off as a company that formed strong relationships with medical institutions to help them generate their assessments with ease and maximum efficiency thus saving the organization's valuable time.
           Click below to learn about the diseases that RiskAssess is capable of assessing.</p>
       <p><a class="btn btn-primary btn-lg" href="disindex.html" role="button">Get Started &raquo;</a></p>
+      <script src="profile.js"></script>
     </div>
   </div>
 
