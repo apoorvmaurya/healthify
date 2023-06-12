@@ -20,15 +20,15 @@ if (storedUser) {
     welcomeMessage.style.transform = 'translateY(0)';
   }, 500);
 
-  // Add a profile card animation
-  var profileCard = document.querySelector('.profile-card');
-  profileCard.style.opacity = 0;
-  profileCard.style.transform = 'translateY(30px)';
-  profileCard.style.transition = 'opacity 0.5s, transform 0.5s';
+  // Add a profile info animation
+  var profileInfo = document.querySelector('.profile-info');
+  profileInfo.style.opacity = 0;
+  profileInfo.style.transform = 'translateY(30px)';
+  profileInfo.style.transition = 'opacity 0.5s, transform 0.5s';
 
   setTimeout(function () {
-    profileCard.style.opacity = 1;
-    profileCard.style.transform = 'translateY(0)';
+    profileInfo.style.opacity = 1;
+    profileInfo.style.transform = 'translateY(0)';
   }, 800);
 
   // Add a logout functionality

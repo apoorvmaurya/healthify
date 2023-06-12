@@ -5,11 +5,55 @@ body {
   padding: 0;
 }
 
-.container {
+.header {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 100vh;
+}
+
+
+
+.profile-info {
+  text-align: right;
+}
+
+.profile-info p {
+  margin: 0;
+}
+
+.profile-photo {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.profile-photo:hover {
+  transform: scale(1.1);
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-photo input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .profile-card {
@@ -35,13 +79,13 @@ body {
 .profile-card .welcome-message {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.5s, transform 0.5s;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .profile-card .profile-info {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.5s, transform 0.5s;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .profile-card .logout-button {
@@ -70,4 +114,8 @@ body {
   width: 100%;
   height: calc(100vh - 110px); /* Adjust the height based on the position of other elements */
   border: none;
+}
+
+.hidden {
+  display: none;
 }

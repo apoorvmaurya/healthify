@@ -23,7 +23,7 @@
     }
 
     .profile-info {
-      text-align: right;
+      text-align: left;
     }
 
     .profile-info p {
@@ -67,6 +67,14 @@
       background-color: #ffffff;
       border-radius: 5px;
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .profile-card.show {
+      opacity: 1;
+      transform: translateY(0);
     }
     
     .profile-card h1 {
@@ -82,11 +90,11 @@
     }
     
     .profile-card .welcome-message {
+      text-align: center;
+      margin: 0;
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.5s, transform 0.5s;
-      text-align: right;
-      margin: 0;
     }
     
     .profile-card .logout-button {
@@ -124,15 +132,18 @@
 </head>
 <body>
   <header class="header">
-    <div class="profile-photo">
-      <img id="profile-image" src="https://iili.io/H69PnPR.jpg" alt="Profile Photo">
-      <input type="file" id="profile-upload" accept="image/*" onchange="loadProfilePhoto(event)">
+    <div class="profile-card">
+      <h1><span id="username"></h1>
+      <p class="welcome-message">~𝒮𝓅𝒶𝓇𝓀𝓁𝒾𝓃𝑔 𝒽𝑒𝒶𝓁𝓉𝒽 𝒿𝑜𝓊𝓇𝓃𝑒𝓎~</p>
+      <div class="profile-photo">
+        <img id="profile-image" src="https://iili.io/H69PnPR.jpg" alt="Profile Photo">
+        <input type="file" id="profile-upload" accept="image/*" onchange="loadProfilePhoto(event)">
+      </div>
+      <div class="profile-info">
+        <p>id: <span id="email"></span></p>
+      </div>
+      <button id="logout-button" class="logout-button">Logout</button>
     </div>
-    <div class="profile-info">
-      <p>Hello <span id="username"></span>!</p>
-      <p>Your id: <span id="email"></span></p>
-    </div>
-    <button id="logout-button" class="logout-button">Logout</button>
   </header>
 
   <div class="dashboard-container">
@@ -141,6 +152,48 @@
 
   <script src="profile.js"></script>
   <script>
+    // Retrieve user object from localStorage
+    var storedUser = localStorage.getItem('user');
+
+    if (storedUser) {
+      // Parse storedUser JSON string to object
+      var user = JSON.parse(storedUser);
+
+      // Set user details in the profile page
+      document.getElementById('username').textContent = user.username;
+      document.getElementById('email').textContent = user.email;
+
+      // Add a welcome message animation
+      var welcomeMessage = document.querySelector('.welcome-message');
+      welcomeMessage.style.opacity = 0;
+      welcomeMessage.style.transform = 'translateY(30px)';
+      welcomeMessage.style.transition = 'opacity 0.5s, transform 0.5s';
+
+      setTimeout(function () {
+        welcomeMessage.style.opacity = 1;
+        welcomeMessage.style.transform = 'translateY(0)';
+      }, 500);
+
+      // Add a profile card animation
+      var profileCard = document.querySelector('.profile-card');
+      profileCard.classList.add('show');
+
+      // Add a logout functionality
+      var logoutButton = document.getElementById('logout-button');
+
+      logoutButton.addEventListener('click', function () {
+        // Clear user data from localStorage
+        localStorage.removeItem('user');
+
+        // Redirect to the login page
+        window.location.href = 'login.html';
+      });
+    } else {
+      alert('User not found. Please sign in first.');
+      // Redirect to login page
+      window.location.href = 'login.html';
+    }
+
     function loadProfilePhoto(event) {
       var input = event.target;
       if (input.files && input.files[0]) {
@@ -158,7 +211,7 @@
       header.classList.add('hidden');
 
       // Redirect to homepage (index.html)
-      window.location.href = 'index.html';
+      window.location.href = 'logout.html';
     });
   </script>
 </body>
