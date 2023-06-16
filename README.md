@@ -1,6 +1,6 @@
 # healthify :hospital:
 
-Healthify is a risk assessment system for medical institutions to generate risk assessments for their patients. The system helps medical institutions save valuable time by providing an efficient and easy-to-use platform for generating risk assessments for various diseases.
+Healthify is a AssessMed assesment system for medical institutions to generate AssessMed assesments for their patients. The system helps medical institutions save valuable time by providing an efficient and easy-to-use platform for generating AssessMed assesments for various diseases.
 
 ## :sparkles: Features
 
