@@ -33,8 +33,11 @@ function googleSignUp() {
       // Save user details to local storage or your preferred method
       localStorage.setItem("user", JSON.stringify({ username: username, email: email, password: password }));
 
-      // Redirect to profile page or your desired destination
-      window.location.href = "profile.html";
+      // Delay the redirection slightly to ensure local storage is updated
+      setTimeout(function() {
+        // Redirect to profile page or your desired destination
+        window.location.href = "profile.html";
+      }, 500);
     })
     .catch(function(error) {
       // Handle error during authentication

@@ -118,6 +118,29 @@
     </div>
   </div>
 
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+  
+      // Get form inputs
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+  
+      // Perform login authentication (replace with your own authentication logic)
+      var authenticated = true; // Example: Assume authentication is successful
+  
+      if (authenticated) {
+        // Delay the redirection slightly to allow the submit event to finish
+        setTimeout(function() {
+          window.location.href = "profile.html";
+        }, 100);
+      } else {
+        // Handle authentication failure (e.g., display error message)
+        console.log("Login failed. Please check your credentials.");
+      }
+    });
+  </script>
+
   <script src="signup.js"></script>
 </body>
 </html>
