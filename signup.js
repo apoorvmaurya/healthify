@@ -13,3 +13,24 @@ document.getElementById("signup-form").addEventListener("submit", function(event
     window.location.href = "login.html";
   });
   
+  function googleSignUp() {
+    gapi.auth2.getAuthInstance().signIn()
+      .then(function(user) {
+        // Successful authentication
+        var profile = user.getBasicProfile();
+        var username = profile.getName();
+        var email = profile.getEmail();
+        var password = ""; // No password for Google sign-in
+  
+        // Save user details to local storage or your preferred method
+        localStorage.setItem("user", JSON.stringify({ username: username, email: email, password: password }));
+  
+        // Redirect to profile page or your desired destination
+        window.location.href = "profile.html";
+      })
+      .catch(function(error) {
+        // Handle error during authentication
+        console.log(error);
+      });
+  }
+  

@@ -3,6 +3,18 @@
 <head>
   <title>AssessMed | Sign Up</title>
   <link rel="stylesheet" href="login.css">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <script>
+    function startGoogleSignIn() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init({
+          client_id: '681018805781-sgin86ama2q2eic886cetphsufr415hi.apps.googleusercontent.com',
+        });
+      });
+    }
+  </script>
+  
   <style>
     /* Add any additional styles here */
     body {
@@ -79,7 +91,7 @@
     }
   </style>
 </head>
-<body>
+<body onload="startGoogleSignIn()">
   <div class="container">
     <form class="form-signin" id="signup-form">
       <h1>AssessMed</h1>
@@ -91,6 +103,14 @@
       <label for="password">Password</label>
       <input type="password" id="password" name="password" required>
       <button type="submit">Sign Up</button>
+
+      <p>or</p>
+
+      <button type="button" onclick="googleSignUp()" class="google-button">
+        <span class="google-button-icon"></span>
+        <span class="google-button-text">Sign Up with Google</span>
+      </button>
+      
     </form>
     <div class="form-footer">
       <p>Already have an account? <a href="login.html">Login</a></p>
