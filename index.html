@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>AssessMed | Homepage</title>
@@ -24,7 +25,7 @@
             margin: 0;
             font-family: 'Dancing Script', cursive;
             text-align: center; 
-            background-image: url('https://iili.io/H6BIngp.gif'); 
+            background-image: url('static/img/animation.gif');
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -368,6 +369,22 @@
         setTimeout(function() {
             document.body.style.display = "block";
         },);
+
+            $(document).ready(function(){
+                // Smooth scrolling for anchor links
+                $("a").on('click', function(event) {
+                    if (this.hash !== "") {
+                        event.preventDefault();
+                        var hash = this.hash;
+                        $('html, body').animate({
+                            scrollTop: $(hash).offset().top
+                        }, 800, function(){
+                            window.location.hash = hash;
+                        });
+                    }
+                });
+            });
+
     </script>
 
    </form>
