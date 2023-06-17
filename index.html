@@ -14,25 +14,126 @@
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
 
-     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Dancing Script', cursive;
+            text-align: center; 
+            background-image: url('https://iili.io/H6BIngp.gif'); 
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+          }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+        /* animation for the 'Healthify' text */
+    .animated-text {
+        font-family: 'Lucida Handwriting', cursive;
+        font-size: 80px; 
+        fill: none;
+        stroke: rgb(109, 230, 218); /* Change the color */
+        stroke-width: 2;
+        animation: draw 8s ease-in-out forwards;
+        animation-delay: 0s; /* Delay the animation start */
+        transform-origin: center;
+        opacity: 0;
+        cursor: pointer; 
+      }
+      
+      @keyframes draw {
+        0% {
+          stroke-dasharray: 0;
+          stroke-dashoffset: 1000;
+          opacity: 0;
+        }
+        100% {
+          stroke-dasharray: 1000;
+          stroke-dashoffset: 0;
+          opacity: 1;
         }
       }
+  
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+  
+      .typed-text {
+        font-family: 'Dancing Script', cursive;
+        font-size: 80px; 
+        color: rgb(109, 230, 218); /* Change the color */
+        overflow: hidden;
+        white-space: nowrap;
+        animation: typing 4s steps(40) forwards;
+        animation-delay: 8s; /* Delay the typing animation start */
+      }
+      
+      .animated-text2 {
+        opacity: 0;
+        position: relative;
+        top: 50px;
+        animation: fadeIn 2s ease-in-out 1s forwards, slideIn 3s ease-in-out 1s forwards;
+        color: rgb(190, 139, 238);
+        animation-fill-mode: forwards;
+      }
+      
+      @keyframes fadeIn {
+        0% { transform: translateY(20px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+      }
+      
+      @keyframes slideIn {
+        0% { top: 50px; opacity: 0; }
+        100% { top: 0; opacity: 1; }
+      }
+  
+      /* Adjust the SVG size and positioning */
+      svg {
+        width: 100%;
+        height: 200px;
+      }
+
+        /* Adjust the font size based on screen resolution */
+        @media only screen and (max-width: 600px) {
+            .animated-text,
+            .typed-text {
+                font-size: 50px;
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            .animated-text,
+            .typed-text {
+                font-size: 40px;
+            }
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
     </style>
-
-<link rel="stylesheet" type="text/css" href="index.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lucida+Handwriting&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
     <form id="form1">
@@ -64,6 +165,40 @@
                 </div>
             </nav>
         </header>
+
+        <div id="animation-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200">
+                <text class="animated-text" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">~  𝓱 𝓮 𝓪 𝓵 𝓽 𝓱 𝓲 𝓯 𝔂  ~</text>
+              </svg>
+              <br />
+              <h2 class="animated-text2">made with &#x1F496; by Apoorv</h2> 
+              
+              <script>
+                // JavaScript to display 'made with' text animation
+                window.addEventListener('load', function() {
+                  setTimeout(function() {
+                    var textContainer = document.querySelector('.animated-text2');
+                    textContainer.style.animationDelay = '0.5s';
+                    textContainer.style.opacity = 1;
+                    textContainer.style.top = 0;
+                  }, 1000);
+                });
+            
+                function animateHealthify() {
+                  var textElement = document.querySelector('.animated-text');
+                  textElement.style.animation = 'none';
+                  void textElement.offsetWidth; 
+            
+                  textElement.style.animation = 'draw 8s ease-in-out forwards';
+                  textElement.style.animationDelay = '0s';
+                }
+                
+                // JavaScript to trigger typing effect
+                var typedText = document.querySelector('.typed-text');
+                typedText.addEventListener('animationend', function() {
+                  this.style.animation = 'none';
+                });
+              </script>
 
         <!--Image Carousel-->
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -219,6 +354,22 @@
         </div>
         </div>
     </footer>
+    <script>
+        // Hide the animation container initially
+        var animationContainer = document.getElementById("animation-container");
+        animationContainer.style.display = "none";
+
+        // Show the animation container after 7 seconds
+        setTimeout(function() {
+            animationContainer.style.display = "block";
+        },);
+
+        // Show the main content after 7 seconds
+        setTimeout(function() {
+            document.body.style.display = "block";
+        },);
+    </script>
+
    </form>
 </body>
 </html>
