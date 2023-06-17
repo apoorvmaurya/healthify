@@ -70,14 +70,14 @@
         overflow: hidden;
         white-space: nowrap;
         animation: typing 4s steps(40) forwards;
-        animation-delay: 8s; /* Delay the typing animation start */
+        animation-delay: 2s; /* Delay the typing animation start */
       }
       
       .animated-text2 {
         opacity: 0;
         position: relative;
-        top: 50px;
-        animation: fadeIn 2s ease-in-out 1s forwards, slideIn 3s ease-in-out 1s forwards;
+        top: 30px;
+        animation: fadeIn 2s ease-in-out 1s forwards, slideIn 3s ease-in-out 0.5s forwards;
         color: rgb(190, 139, 238);
         animation-fill-mode: forwards;
       }
@@ -205,6 +205,7 @@
                   this.style.animation = 'none';
                 });
               </script>
+          </div>
 
         <!--Image Carousel-->
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -257,7 +258,6 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-          </div>
 
     <!--Jumbotron-->
     <div class="container-fluid">
