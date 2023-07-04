@@ -10,7 +10,7 @@ document.getElementById("signup-form").addEventListener("submit", function(event
   localStorage.setItem("user", JSON.stringify({ username: username, email: email, password: password }));
 
   // Redirect to login page
-  window.location.href = "login.html";
+  window.location.href = "profile.html";
 });
 
 function startGoogleSignIn() {
