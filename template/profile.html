@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>AssessMed | Profile</title>
-  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="../static/css/profile.css">
   <style>
     /* Add any additional styles here */
     body {
@@ -150,7 +150,7 @@
     <iframe class="dashboard-iframe" id="dashboard-iframe" src="dashboard.html"></iframe>
   </div>
 
-  <script src="profile.js"></script>
+  <script src="../static/js/profile.js"></script>
   <script>
     // Retrieve user object from localStorage
     var storedUser = localStorage.getItem('user');
@@ -210,7 +210,7 @@
       var header = document.querySelector('.header');
       header.classList.add('hidden');
 
-      // Redirect to homepage (index.html)
+      // Redirect to homepage (home.html)
       window.location.href = 'logout.html';
     });
   </script>
